@@ -146,7 +146,7 @@ async def VidWatermarkAdder(bot, cmd):
 			return
 	## --- Noobie Process --- ##
 	if cmd.photo or (cmd.document and cmd.document.mime_type.startswith("image/")):
-		editable = await cmd.reply_text("**📥 در حال دانلود واترمارک ارسالی شما ...**")
+		editable = await cmd.reply_text("📥 در حال دانلود واترمارک ارسالی شما ...")
 		watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 		await asyncio.sleep(5)
 		c_time = time.time()
@@ -208,13 +208,13 @@ async def VidWatermarkAdder(bot, cmd):
 			await delete_trash(status)
 			await delete_trash(the_media)
 			print(f"Download Failed")
-			await editable.edit("**دانلود ویدیو ناموفق بود !! 😔**")
+			await editable.edit("Unable to Download The Video!")
 			return
 	except Exception as err:
 		await delete_trash(status)
 		await delete_trash(the_media)
 		print(f"Download Failed: {err}")
-		await editable.edit("**⁦‼️⁩ دانلود ویدیو ناموفق بود.😔**")
+		await editable.edit("⁦‼️⁩ دانلود ویدیو ناموفق بود.😔")
 		return
 	watermark_position = await db.get_position(cmd.from_user.id)
 	if watermark_position == "5:main_h-overlay_h":
@@ -230,7 +230,7 @@ async def VidWatermarkAdder(bot, cmd):
 		watermark_position = "5:5"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	await editable.edit(f"**🔮 در حال افزودن واترمارک ... 🤩**\n\n**⭕ کمی صبر کنید...**")
+	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\n⭕ کمی صبر کنید...")
 	duration = 0
 	metadata = extractMetadata(createParser(the_media))
 	if metadata.has("duration"):
@@ -243,7 +243,7 @@ async def VidWatermarkAdder(bot, cmd):
 		output_vid = await vidmark(the_media, editable, progress, watermark_path, output_vid, duration, logs_msg, status, preset, watermark_position, watermark_size)
 	except Exception as err:
 		print(f"Unable to Add Watermark: {err}")
-		await editable.edit("**😏 افزودن واترمارک به ویدیو ناموفق بود !!**")
+		await editable.edit("Unable to add Watermark!")
 		await logs_msg.edit(f"#ERROR: Unable to add Watermark!\n\n**Error:** `{err}`")
 		await delete_all()
 		return
@@ -378,7 +378,7 @@ async def open_broadcast_handler(bot, message):
 async def sts(_, m):
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		msg_text = "**⚠️ ربات در حال انجام پروژه کاربر دیگری است دقایقی دیگر تلاش کنید 😊**\n\n**📍نمایش فعالیت ربات 👈 بزودی**"
+		msg_text = "**⚠️ ربات در حال انجام پروژه کاربر دیگری است دقایقی دیگر تلاش کنید 😊**\n**📍نمایش فعالیت ربات 👈 بزودی**"
 	else:
 		msg_text = "**• هم اکنون فایل خود را ارسال نمایید.😊**"
 	if int(m.from_user.id) == Config.OWNER_ID:
