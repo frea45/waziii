@@ -181,6 +181,10 @@ async def VidWatermarkAdder(bot, cmd):
 			'chat_id': cmd.from_user.id,
 			'message': editable.message_id
 		}
+        file_size = os.path.getsize(output_vid)
+	 if (int(file_size) > 25000) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
+		await editable.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
+		
 		json.dump(statusMsg, f, indent=2)
 	dl_loc = Config.DOWN_PATH + "/WatermarkAdder/" + str(cmd.from_user.id) + "/"
 	if not os.path.isdir(dl_loc):
