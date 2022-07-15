@@ -146,7 +146,7 @@ async def VidWatermarkAdder(bot, cmd):
 			return
 	## --- Noobie Process --- ##
 	if cmd.photo or (cmd.document and cmd.document.mime_type.startswith("image/")):
-		editable = await cmd.reply_text("📥 در حال دانلود واترمارک ارسالی شما ...")
+		editable = await cmd.reply_text("**📥 در حال دانلود واترمارک ارسالی شما ...**")
 		watermark_path = Config.DOWN_PATH + "/" + str(cmd.from_user.id) + "/thumb.jpg"
 		await asyncio.sleep(5)
 		c_time = time.time()
@@ -230,7 +230,7 @@ async def VidWatermarkAdder(bot, cmd):
 		watermark_position = "5:5"
 
 	watermark_size = await db.get_size(cmd.from_user.id)
-	await editable.edit(f"Trying to Add Watermark to the Video at {position_tag} Corner ...\n\n⭕ کمی صبر کنید...")
+	await editable.edit(f"**🔮 در حال افزودن واترمارک ... 🤩**\n\n**⭕ کمی صبر کنید...**")
 	duration = 0
 	metadata = extractMetadata(createParser(the_media))
 	if metadata.has("duration"):
