@@ -29,7 +29,7 @@ class Config(object):
 **🎌 فعالیت ربات ← /status **
 ‌**⚙️⁩ تنظیمات واترمارک ← /settings** 
 
-**🖍️ طراح ربات : [FāRSHíD-Band](https://t.me/FarshidBand)**
+**👤 مدیر : [FāRSHíD-Band](https://t.me/FarshidBand)**
 """
 	PROGRESS = """
 • ✅{1} of 📁{2} •
