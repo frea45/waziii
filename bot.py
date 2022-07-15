@@ -202,6 +202,10 @@ async def VidWatermarkAdder(bot, cmd):
 				editable,
 				logs_msg,
 				c_time
+	file_size = os.path.getsize(output_vid)
+	if (int(file_size) > 25010010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
+		await editable.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
+		
 			)
 		)
 		if the_media is None:
@@ -298,7 +302,8 @@ async def VidWatermarkAdder(bot, cmd):
 	file_size = os.path.getsize(output_vid)
 	if (int(file_size) > 25010010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
 		await editable.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
-		try:
+		
+try:
 			async with aiohttp.ClientSession() as session:
 				Main_API = "https://api.streamtape.com/file/ul?login={}&key={}"
 				hit_api = await session.get(Main_API.format(Config.STREAMTAPE_API_USERNAME, Config.STREAMTAPE_API_PASS))
