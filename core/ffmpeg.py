@@ -84,7 +84,7 @@ async def vidmark(the_media, message, working_dir, watermark_path, output_vid, t
                 ''.join(["▓" for i in range(math.floor(percentage / 10))]),
                 ''.join(["░" for i in range(10 - math.floor(percentage / 10))])
                 )
-            stats = f'📦️ **در حال افزودن واترمارک به ویدیو...**\n\n' \
+            stats = f'📦️ **در حال افزودن واترمارک [Preset: `{mode}`]**\n\n' \
                     f'**👤 نام کاربر :** `[{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})`\n**📌 آیدی عددی کاربر :** `#id{cmd.from_user.id}`\n⏰️ **مدت زمان اتمام پروژه :** `{ETA}`\n🔰 **پید :** `{process.pid}`\n🔄 **تایم ویدیو: `<bdi>{format_timespan(total_time)}</bdi>`**\n\n' \
                     f'{progress_str}\n'
             try:
