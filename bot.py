@@ -203,7 +203,7 @@ async def VidWatermarkAdder(bot, cmd):
 				logs_msg,
 				c_time
 	file_size = os.path.getsize(output_vid)
-	if (int(file_size) > 25010010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
+	if (int(file_size) > 250010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
 		await editable.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
 		
 			)
@@ -300,7 +300,7 @@ async def VidWatermarkAdder(bot, cmd):
 		print(f"Error: {err}")
 	# --- Upload --- #
 	file_size = os.path.getsize(output_vid)
-	if (int(file_size) > 25010010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
+	if (int(file_size) > 250010) and (Config.ALLOW_UPLOAD_TO_STREAMTAPE is True) and (Config.STREAMTAPE_API_USERNAME != "NoNeed") and (Config.STREAMTAPE_API_PASS != "NoNeed"):
 		await editable.edit(f"Sorry Sir,\n\nFile Size Become {humanbytes(file_size)} !!\nI can't Upload to Telegram!\n\nSo Now Uploading to Streamtape ...")
 		
 try:
@@ -383,7 +383,7 @@ async def open_broadcast_handler(bot, message):
 async def sts(_, m):
 	status = Config.DOWN_PATH + "/WatermarkAdder/status.json"
 	if os.path.exists(status):
-		msg_text = "**⚠️ ربات در حال انجام پروژه کاربر دیگری است دقایقی دیگر تلاش کنید 😊**\n**📍نمایش فعالیت ربات 👈 بزودی**"
+		msg_text = "**⚠️ ربات در حال انجام پروژه کاربر دیگری است دقایقی دیگر تلاش کنید 😊**\n\n**📍نمایش فعالیت ربات 👈 بزودی**"
 	else:
 		msg_text = "**• هم اکنون فایل خود را ارسال نمایید.😊**"
 	if int(m.from_user.id) == Config.OWNER_ID:
