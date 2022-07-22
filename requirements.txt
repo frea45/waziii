@@ -12,6 +12,8 @@ Pillow
 pyrogram==1.4.16
 requests
 tgcrypto
+olefile
+motor==2.5.1
 pymongo==3.12.3
 loggers
 filetype
