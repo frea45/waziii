@@ -24,7 +24,7 @@
          "BOT_TOKEN": {
             "description": "Token telegram",
             "required": false,
-            "value": "5088657122:AAFlOm_612eSVMN-ML-akdXe2C-EhijqN9k"
+            "value": "5088657122:AAFwp9oaTQh92NWMXZRkV6DUCywpmBM3B5E"
         },
          "BOT_USERNAME": {
             "description": "id Name bot telegram",
